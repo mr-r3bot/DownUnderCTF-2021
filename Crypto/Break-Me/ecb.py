@@ -52,11 +52,14 @@ def brute_force_letter(p, key="") -> str:
     return key
 
 def main(p):
-    key = brute_force_letter(p)
-    data = send_payload(p, "")
-    cipher = AES.new(key, AES.MODE_ECB)
-    pt = cipher.decrypt(data[0])
-    print(pt)
+    try:
+        key = brute_force_letter(p)
+        data = send_payload(p, "")
+        cipher = AES.new(key, AES.MODE_ECB)
+        pt = cipher.decrypt(data[0])
+        print(pt)
+    except Exception:
+  
     # DUCTF{ECB_M0DE_K3YP4D_D474_L34k}
 
 
